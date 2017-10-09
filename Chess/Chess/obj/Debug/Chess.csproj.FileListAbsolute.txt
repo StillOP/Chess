@@ -1,0 +1,17 @@
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\csfml-audio-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\csfml-graphics-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\csfml-system-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\csfml-window-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\libsndfile-1.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\openal32.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\OpenTK.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\Chess.exe.config
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\Chess.exe
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\Chess.pdb
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\sfmlnet-audio-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\sfmlnet-system-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\bin\Debug\sfmlnet-window-2.dll
+C:\Users\Pierre\Desktop\Chess\Chess\obj\Debug\Chess.exe
+C:\Users\Pierre\Desktop\Chess\Chess\obj\Debug\Chess.pdb
