@@ -188,15 +188,16 @@ namespace Chess
                     if (kz.m_boundaries.Contains(mousepos.X, mousepos.Y))
                     {
                         position = kz.m_center;
+                        int c = 0;
                         for(int i = 0; i < possibleMovements.Count; ++i)
                         {
-                            if (position != possibleMovements[i] && i < possibleMovements.Count - 1) { continue; }
-                            if (position != possibleMovements[i] && i == possibleMovements.Count)
-                            {
-                                m_mouseState = MouseState.Free;
-                               m_currentChessman = null;
-                                return;
-                            }
+                            if (position != possibleMovements[i]) { ++c; }
+                        }
+                        if (c == possibleMovements.Count)
+                        {
+                            m_mouseState = MouseState.Free;
+                            m_currentChessman = null;
+                            return;
                         }
                     }
                 }

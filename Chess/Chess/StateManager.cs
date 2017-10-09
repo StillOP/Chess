@@ -21,7 +21,7 @@ namespace Chess
 
             m_window.GetRenderWindow.KeyPressed += new EventHandler<KeyEventArgs>(SwitchToEvent);
 
-            SwitchTo(StateType.Config);
+            SwitchTo(StateType.Game);
         }
 
         public void Update()
