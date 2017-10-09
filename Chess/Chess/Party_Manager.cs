@@ -48,6 +48,18 @@ namespace Chess
                 pion.SetBoard(ref m_board);
                 m_joueur1.Add(pion);
             }
+
+            /*Tour tour = new Tour();
+            tour.SetWindow(ref m_window);
+            tour.SetTexture(ref m_whiteChess);
+            tour.GetSprite.Position = new Vector2f(180, 660);
+            tour.Position = new Vector2f(180, 660);
+            tour.Color = Color.White;
+            tour.Boundaries = new FloatRect(tour.Position.X - (m_board.m_cases[0].m_boundaries.Width / 2.0f), tour.Position.Y - (m_board.m_cases[0].m_boundaries.Height / 2.0f), m_board.m_cases[0].m_boundaries.Width, m_board.m_cases[0].m_boundaries.Height);
+            tour.SetBoard(ref m_board);
+
+
+            m_joueur1.Add(tour);*/
         }
 
         private void SetBlackChessMan()
@@ -192,12 +204,12 @@ namespace Chess
                         for(int i = 0; i < possibleMovements.Count; ++i)
                         {
                             if (position != possibleMovements[i]) { ++c; }
-                        }
-                        if (c == possibleMovements.Count)
-                        {
-                            m_mouseState = MouseState.Free;
-                            m_currentChessman = null;
-                            return;
+                            if (c == possibleMovements.Count)
+                            {
+                                m_mouseState = MouseState.Free;
+                                m_currentChessman = null;
+                                return;
+                            }
                         }
                     }
                 }
@@ -224,3 +236,29 @@ namespace Chess
         private int m_tour;
     }
 }
+
+
+
+/* foreach(Case kz in m_board.m_cases)
+                {
+                    if (kz.m_boundaries.Contains(mousepos.X, mousepos.Y))
+                    {
+                        position = kz.m_center;
+                        int c = 0;
+                        for(int i = 0; i < possibleMovements.Count; ++i)
+                        {
+                            if (position != possibleMovements[i]) { ++c; }
+                            if (c == possibleMovements.Count)
+                            {
+                                m_mouseState = MouseState.Free;
+                                m_currentChessman = null;
+                                return;
+                            }
+                        }
+                    }
+                }
+                m_currentChessman.Position = position;
+                m_currentChessman.GetSprite.Position = position;
+                m_currentChessman.Boundaries = new FloatRect(position.X - (m_currentChessman.Boundaries.Width / 2.0f), position.Y - (m_currentChessman.Boundaries.Height / 2.0f), m_currentChessman.Boundaries.Width, m_currentChessman.Boundaries.Height);
+                m_mouseState = MouseState.Free;
+                ++m_tour;*/

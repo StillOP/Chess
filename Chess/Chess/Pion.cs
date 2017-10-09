@@ -67,7 +67,7 @@ namespace Chess
                         m_possibleMove.Add(new Vector2f(m_position.X - m_move, m_position.Y - m_move));
                     }
                 }
-
+               // Console.WriteLine(m_possibleMove.Count);
                 return m_possibleMove;
             }
 
