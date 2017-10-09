@@ -10,7 +10,7 @@ namespace Chess
     {
         public Game()
         {
-            m_window = new Window(1280, 960, "Chess");
+            m_window = new Window(960, 960, "Chess");
             m_stateManger = new StateManager(ref m_window);
         }
 

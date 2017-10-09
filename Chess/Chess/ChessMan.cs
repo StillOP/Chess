@@ -9,7 +9,7 @@ using SFML.Window;
 
 namespace Chess
 {
-    enum Color { Black = 1, White };
+    enum Color { White = 1, Black };
 
     abstract class ChessMan
     {

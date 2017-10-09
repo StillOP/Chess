@@ -53,14 +53,14 @@ namespace Chess
 
                 if (chessman1 == null) { m_possibleMove.Add(new Vector2f(m_position.X, m_position.Y - m_move)); }
 
-                if (chessman2 != null)
+               if (chessman2 != null)
                 {
                     if (chessman2.Color != Color)
                     {
                         m_possibleMove.Add(new Vector2f(m_position.X + m_move, m_position.Y - m_move));
                     }
                 }
-                if (chessman3 != null)
+               if (chessman3 != null)
                 {
                     if (chessman3.Color != Color)
                     {

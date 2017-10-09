@@ -27,6 +27,7 @@ namespace Chess
             m_prediction = new List<RectangleShape>();
             m_mouseState = MouseState.Free;
             m_currentChessman = null;
+            m_tour = 1;
 
             SetWhiteChessMan();
             SetBlackChessMan();
@@ -76,6 +77,10 @@ namespace Chess
                     if(m_board.m_cases[i].m_center == m_joueur1[j].GetSprite.Position)
                     {
                         ++count;
+                        if (m_board.m_cases[i].m_chessMan != null)
+                        {
+                            m_joueur2.Remove(m_board.m_cases[i].m_chessMan);
+                        }
                         if (m_board.m_cases[i].m_chessMan != m_joueur1[j])
                         {
                             Case kz = m_board.m_cases[i];
@@ -90,10 +95,14 @@ namespace Chess
                     if (m_board.m_cases[i].m_center == m_joueur2[j].GetSprite.Position)
                     {
                         ++count;
-                        if (m_board.m_cases[i].m_chessMan != m_joueur1[j])
+                        if (m_board.m_cases[i].m_chessMan != null)
+                        {
+                            m_joueur1.Remove(m_board.m_cases[i].m_chessMan);
+                        }
+                        if (m_board.m_cases[i].m_chessMan != m_joueur2[j])
                         {
                             Case kz = m_board.m_cases[i];
-                            kz.m_chessMan = m_joueur1[j];
+                            kz.m_chessMan = m_joueur2[j];
                             m_board.m_cases[i] = kz;
                         }
                     }
@@ -140,26 +149,28 @@ namespace Chess
             List<Vector2f> possibleMovements = new List<Vector2f>();
             if (m_mouseState == MouseState.Free)
             {
-                bool get = false;
-                foreach (ChessMan chess in m_joueur1)
+                if (m_tour % 2 != 0)
                 {
-                    if (chess.Boundaries.Contains(mousepos.X, mousepos.Y))
+                    foreach (ChessMan chess in m_joueur1)
                     {
-                        possibleMovements = chess.PossibleMovement();
-                        m_currentChessman = chess;
-                        SetMovePrediction(ref possibleMovements, ref m_currentChessman);
-                        get = true;
-                        m_mouseState = MouseState.Selection;
+                        if (chess.Boundaries.Contains(mousepos.X, mousepos.Y))
+                        {
+                            possibleMovements = chess.PossibleMovement();
+                            if (possibleMovements.Count == 0) { return; }
+                            m_currentChessman = chess;
+                            SetMovePrediction(ref possibleMovements, ref m_currentChessman);
+                            m_mouseState = MouseState.Selection;
+                        }
                     }
                 }
-                if (!get)
+                else
                 {
                     foreach (ChessMan chess in m_joueur2)
                     {
                         if (chess.Boundaries.Contains(mousepos.X, mousepos.Y))
                         {
-
                             possibleMovements = chess.PossibleMovement();
+                            if (possibleMovements.Count == 0) { return; }
                             m_currentChessman = chess;
                             SetMovePrediction(ref possibleMovements, ref m_currentChessman);
                             m_mouseState = MouseState.Selection;
@@ -179,11 +190,11 @@ namespace Chess
                         position = kz.m_center;
                         for(int i = 0; i < possibleMovements.Count; ++i)
                         {
-                            if (position != possibleMovements[i] && i < possibleMovements.Count - 1) { continue; }
-                            if (position != possibleMovements[i] && i == possibleMovements.Count -1)
+                            //if (position != possibleMovements[i] && i < possibleMovements.Count - 1) { continue; }
+                            if (position != possibleMovements[i] && i == possibleMovements.Count)
                             {
                                 m_mouseState = MouseState.Free;
-                                m_currentChessman = null;
+                               m_currentChessman = null;
                                 return;
                             }
                         }
@@ -193,6 +204,7 @@ namespace Chess
                 m_currentChessman.GetSprite.Position = position;
                 m_currentChessman.Boundaries = new FloatRect(position.X - (m_currentChessman.Boundaries.Width / 2.0f), position.Y - (m_currentChessman.Boundaries.Height / 2.0f), m_currentChessman.Boundaries.Width, m_currentChessman.Boundaries.Height);
                 m_mouseState = MouseState.Free;
+                ++m_tour;
             }
         }
 
@@ -208,28 +220,6 @@ namespace Chess
         private Window m_window;
         private MouseState m_mouseState;
         private ChessMan m_currentChessman;
-        //int s = 0;
+        private int m_tour;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-/* if (s == 0)
-           {
-               for(int h = 0; h < 64; ++h)
-               {
-                   if (m_board.m_cases[h].m_chessMan != null)
-                   {
-                       Console.WriteLine("La case " + m_board.m_cases[h].m_center.X + " " + m_board.m_cases[h].m_center.Y + " est occupé");
-                   }
-               }
-           }
-           ++s;*/
