@@ -190,7 +190,7 @@ namespace Chess
                         position = kz.m_center;
                         for(int i = 0; i < possibleMovements.Count; ++i)
                         {
-                            //if (position != possibleMovements[i] && i < possibleMovements.Count - 1) { continue; }
+                            if (position != possibleMovements[i] && i < possibleMovements.Count - 1) { continue; }
                             if (position != possibleMovements[i] && i == possibleMovements.Count)
                             {
                                 m_mouseState = MouseState.Free;
