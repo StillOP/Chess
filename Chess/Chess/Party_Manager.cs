@@ -32,6 +32,10 @@ namespace Chess
             SetWhiteChessMan();
             SetBlackChessMan();
         }
+        void AddChessMan<T>(ref Texture l_texture, Vector2f l_position, Color l_color) where T: ChessMan, new()
+        {
+
+        }
 
         private void SetWhiteChessMan()
         {
@@ -54,7 +58,7 @@ namespace Chess
             tour1.SetWindow(ref m_window);
             tour1.SetTexture(ref m_whiteChess);
             tour1.GetSprite.Position = new Vector2f(60, 900);
-            tour1.Position = new Vector2f(180, 660);
+            tour1.Position = new Vector2f(60, 900);
             tour1.Color = Color.White;
             tour1.Boundaries = new FloatRect(tour1.Position.X - (m_board.m_cases[0].m_boundaries.Width / 2.0f), tour1.Position.Y - (m_board.m_cases[0].m_boundaries.Height / 2.0f), m_board.m_cases[0].m_boundaries.Width, m_board.m_cases[0].m_boundaries.Height);
             tour1.SetBoard(ref m_board);
@@ -64,7 +68,7 @@ namespace Chess
             tour2.SetWindow(ref m_window);
             tour2.SetTexture(ref m_whiteChess);
             tour2.GetSprite.Position = new Vector2f(900, 900);
-            tour2.Position = new Vector2f(180, 660);
+            tour2.Position = new Vector2f(900, 900);
             tour2.Color = Color.White;
             tour2.Boundaries = new FloatRect(tour2.Position.X - (m_board.m_cases[0].m_boundaries.Width / 2.0f), tour2.Position.Y - (m_board.m_cases[0].m_boundaries.Height / 2.0f), m_board.m_cases[0].m_boundaries.Width, m_board.m_cases[0].m_boundaries.Height);
             tour2.SetBoard(ref m_board);
